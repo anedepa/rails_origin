@@ -1,0 +1,31 @@
+<br>
+<br>
+<h1><%= @article.title %></h1>
+<p><%= @article.contents %></p>
+
+
+<p style="color:<%= @article.color %>">color</p>
+<p><%= @article.id %></p>
+
+<img src="<%= "/post_img/#{@article.img_name}" %>">
+
+<% if logged_in? %>
+<%= link_to '[編集]', edit_article_path(@article) %>
+<% end %>
+
+<%= render 'shared/coment_form' %>
+
+<% if @article.comments.any? %>
+  <h3>(<%= @article.comments.count %>)のコメント</h3>
+  <%= will_paginate @microposts %>
+  <% @microposts.each do |c| %>
+  <li style="color:<%= c.color %>;"><%= c.body %></li>
+<% end %>
+<%= will_paginate @microposts %>
+<% end %>
+
+<style media="screen">
+  body{
+    background-color:<%= @article.color %>;
+  }
+</style>

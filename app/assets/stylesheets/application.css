@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .pagination>li>a {
+   border: none;     /*枠線をなくす*/
+   color:black;   /*文字の色を変える*/
+ }
+ .pagination>.active>a {
+  background:lightgreen;     /*背景の色を変える*/
+  /* border-radius: 15px; */
+}
+ .pagination>.active>a:hover{
+  background:lightgreen;
+  border-radius: 0px;
+}
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+  background-color: pink;
+}
+.head{
+  background-color:black;
+  /* opacity: .9; */
+}
+.hide{
+    transform: translateY(-100%);
+}
+header li>a{
+  /* background-color: green; */
+  font-weight: bold;
+}
+header li>a::after {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background:linear-gradient(to left,black,green 30%,gold);
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform .3s;
+}
+header li>a:hover::after {
+  transform: scale(1, 1);
+}
+body{
+  /* text-align: center; */
+}
+  canvas{
+        position:absolute;     
+         
+        left:0;
+        right:0;
+	
+      }
+
+      
+      .logoc{
+        box-sizing: border-box;
+        
+	color:black;
+     	z-index:1;
+	margin-top:0;
+	margin-bottom:0;
+        left:0;
+        right:0;
+	font-size:22px;
+	font-weight:bolder;
+        position:absolute;
+         font-weight:bold;
+         text-align:center;
+	line-height:30px;
+      }
+	.logolink{
+	position:absolute;     
+        box-sizing: border-box;
+        color:white;
+     	z-index:2;
+	margin-top:0;
+	width:150px;
+        height:30px;
+	opacity:0;   
+	}
+      div.logo{
+	margin-top:10px;
+        position:relative;     
+        width:150px;
+        height:30px;       
+        padding:0;
+	line-height:30px;
+	   
+      }
+

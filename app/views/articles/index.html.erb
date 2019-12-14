@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% if logged_in? %>
+<%= link_to '追加する',new_article_path%>
+<% else %>
+
+<% end %>
+
+<%= render 'shared/index_drop' %>
+
+<%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+<br>
+
+<% @articles.each do |c| %>
+
+
+  <div class="wrap">
+    <a href="<%="articles/#{c.id}"%>" class="a_tag">
+
+  <div class="stream">
+  <% c.comments.first(5).each do |cl| %>
+<li class="c_list" style="color:<%= cl.color %>;"><%= cl.body%></li>
+<br>
+<% end %>
+</div>
+
+<img src="<%= "/post_img/#{c.img_name}" %>" alt="<%="#{c.id}"%>"class="img">
+
+</a>
+</div>
+
+
+<% end %>
+
+<%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+
+<script>
+$('.a_tag').hover(
+ function() {
+       $(this).children('.stream').addClass('move');
+ },
+ function() {
+     $(this).children('.stream').removeClass('move');
+ }
+);
+</script>

@@ -1,0 +1,19 @@
+<p>編集</p>
+
+<%= form_tag(@article, multipart: true, method: 'put') do %>
+<p>
+<input name="title" type="string">
+</p>
+
+<p>
+<input name="contents" type="text">
+</p>
+
+<p>
+<input name="img_n" type="file">
+</p>
+
+<p>
+<input type="submit">
+</p>
+<% end %>

@@ -1,0 +1,72 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.aka{
+  color: red;
+}
+// a:hover{background-Color:white}
+a{
+  text-decoration: none;
+}
+
+li{list-style: none}
+
+.wrap{
+  margin-bottom: 5px;
+  position:relative;
+  width:200px;
+  height:170px;
+  overflow:hidden;
+  background-color: black;
+  z-index: 0;
+}
+
+.a_tag{
+  // border-style: solid;
+  width:200px;
+  margin-bottom: 5px;
+}
+.b_tag{
+  // border-style: solid;
+  width:200px;
+  height:200px;
+  // background-Color:blue;
+  color:blue;
+  // margin-bottom: 5px;
+  position:relative;
+}
+.stream{
+  position:absolute;
+  color: inherit;
+  width:200px;
+  margin-bottom: 5px;
+  z-index: 2;
+  opacity: 0;
+}
+.img{
+  // margin-bottom: 5px;
+  position:absolute;
+  width:200px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.c_list{
+  color:black;
+  font-weight: bold;
+}
+.move{
+  opacity: 1;
+  // animation:type 5s linear 1;
+  animation:type 4s linear  infinite; 
+}
+
+  @keyframes type{
+  0%{
+  transform:translateY(200px);
+}
+
+100%{
+transform:translateY(-400px);
+}
+}
