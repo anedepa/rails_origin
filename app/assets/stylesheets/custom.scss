@@ -1,2 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#error_explanation {
+  color: red;
+	text-align:left;
+  
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}

@@ -31,11 +31,10 @@
 }
 .head{
   background-color:black;
-  /* opacity: .9; */
+  transition:.3s;
+  padding-bottom:0;
 }
-.hide{
-    transform: translateY(-100%);
-}
+
 header li>a{
   /* background-color: green; */
   font-weight: bold;
@@ -102,4 +101,15 @@ body{
 	line-height:30px;
 	   
       }
-
+.navc{
+    transform: translateY(-87%);
+    
+    opacity:.6;
+    transition:.3s;
+}
+.sw{
+	
+cursor: pointer;
+height:30px;
+margin-bottom:0;
+}

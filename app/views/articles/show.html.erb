@@ -1,31 +1,48 @@
+<br><br><br><br>
 <br>
 <br>
 <h1><%= @article.title %></h1>
-<p><%= @article.contents %></p>
-
+<hr>
+<%= @article.author %>
 
 <p style="color:<%= @article.color %>">color</p>
 <p><%= @article.id %></p>
 
-<img src="<%= "/post_img/#{@article.img_name}" %>">
+<img src="<%= "/post_img/#{@article.img_name}" %>" class="showimg <%=@article.img_style%>">
+<p><%= @article.contents %></p>
 
 <% if logged_in? %>
+<% if @article.author==session[:user_id] %>
 <%= link_to '[編集]', edit_article_path(@article) %>
 <% end %>
+<% end %>
 
+<div class="center-block">
 <%= render 'shared/coment_form' %>
 
 <% if @article.comments.any? %>
-  <h3>(<%= @article.comments.count %>)のコメント</h3>
-  <%= will_paginate @microposts %>
+  <h3>
+<% if @article.comments.count<=9 %>
+<%= @article.comments.count %>つのコメント
+<%else%>
+<%= @article.comments.count %>のコメント
+<%end%>
+</h3>
+
+  <%= will_paginate @microposts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
   <% @microposts.each do |c| %>
   <li style="color:<%= c.color %>;"><%= c.body %></li>
 <% end %>
-<%= will_paginate @microposts %>
+<%= will_paginate @microposts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <% end %>
+</div>
 
 <style media="screen">
   body{
-    background-color:<%= @article.color %>;
+    
+    text-align:center;
   }
 </style>
+<script>
+$("body").addClass("<%= @article.color %>");
+</script>

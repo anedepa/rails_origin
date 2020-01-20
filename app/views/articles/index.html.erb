@@ -3,18 +3,29 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+
 
 <% if logged_in? %>
-<%= link_to '追加する',new_article_path%>
+<%= @current_user.id %>
+<%= session[:user_id] %>
+<%= @current_user.name %>
+
+<p class="post"><%= link_to '記事を追加',new_article_path, class: "btn btn-primary"%></p>
+
 <% else %>
 
 <% end %>
+
 
 <%= render 'shared/index_drop' %>
 
 <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <br>
-
+<div class="main">
 <% @articles.each do |c| %>
 
 
@@ -35,8 +46,9 @@
 
 
 <% end %>
-
+</div>
 <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
 
 
 <script>
@@ -48,4 +60,49 @@ $('.a_tag').hover(
      $(this).children('.stream').removeClass('move');
  }
 );
+
 </script>
+<style>
+body{
+  background:#ec6a38;
+  -webkit-animation:color 7s linear infinite;
+    -moz-animation:color 7s linear infinite;
+  
+}
+@-webkit-keyframes color{
+    0%{
+        background:#FFFF66
+    }
+
+    40%{
+        background:#FF6600
+    }
+
+    80%{
+        background:#99FFCC
+    }
+
+    100%{
+        background:#FFFF66
+    }
+}
+
+@-moz-keyframes color{
+    0%{
+        background:#FFFF66
+    }
+
+    40%{
+        background:#FF6600
+    }
+
+    80%{
+        background:#99FFCC
+    }
+
+    100%{
+        background:#FFFF66
+    }
+}
+
+</style>

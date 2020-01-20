@@ -20,3 +20,25 @@
     </div>
   </body>
 </html>
+<script>
+$('.sw').click(function(){
+ if($('.head').hasClass('navc')){
+     $('.head').removeClass('navc');
+}else{
+$('.head').addClass('navc');
+}
+});
+
+
+var startPos = 0,winScrollTop = 0;
+$(window).on('scroll',function(){
+    winScrollTop = $(this).scrollTop();
+    if (winScrollTop >= startPos) {
+        $('.head').addClass('navc');
+    } else {
+        $('.head').removeClass('navc');
+    }
+    startPos = winScrollTop;
+});
+
+  </script>

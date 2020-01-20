@@ -19,9 +19,9 @@ function dr(){
             var canvas = document.getElementById('tutorial');
             if (canvas.getContext){
                 var ctx = canvas.getContext('2d');
-                // ctx.clearRect(0, 0, 150, 30);
+                ctx.clearRect(0, 0, 150, 30);
                 ctx.globalAlpha = 0.7;
-                for(i = 0; i < 10; i++){
+                for(i = 0; i < 200; i++){
                     ctx.beginPath();
                     var r = Math.floor(Math.random() * 256);
                     var g = Math.floor(Math.random() * 256);
@@ -29,15 +29,9 @@ function dr(){
                     ctx.strokeStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
                     ctx.moveTo(Math.random()*150, Math.random()*30);
                     ctx.lineTo(Math.random()*150, Math.random()*30);
-                    
+
                     ctx.stroke();
                 }
             }
           }
-    
-      var count = 0;
-      var countup = function(){
-        (count++);
-      }
-
-      var id = setInterval(function(){countup();dr();if(count > 40){clearInterval(id);}},50);
+      setInterval(function(){dr();},150);
