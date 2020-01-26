@@ -1,21 +1,28 @@
+
+
+
+ 
+
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
 
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
+<h1><%= @user.name %></h1>
 
-      <%= @user.color %>
-    </section>
-  </aside>
+<%= link_to "再設定", edit_user_path(@user.id) %>
+<%= link_to "アカウント削除", user_path, method: :delete %>
 
-</div>
-<style media="screen">
-  body{
-    background-color:<%= @user.color %>;
-  }
-</style>
+ 
+<table class="table">
+  <caption>これまでの投稿</caption>
+  <tr><th>タイトル</th><th>投稿日時</th><th>リンク</th><th>編集</th><th>削除</th></tr>
+
+  <% @articles.each do |c| %>
+<tr>
+<td><%= c.title %></td>
+<td><%= c.created_at %></td>
+<td><%= link_to "[記事へ]",c%></td>
+<td><%= link_to '[編集]', edit_article_path(c) %></td>
+<td><%= link_to "[削除]", article_path(c), method: :delete %></td>
+</tr>
+
+<% end %>
+</table>

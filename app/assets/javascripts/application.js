@@ -15,8 +15,15 @@
 // = require_tree .
 // = require jquery
 // = require bootstrap
-function dr(){
-            var canvas = document.getElementById('tutorial');
+//window.addEventListener("load", function(){
+  //alert("ページが読み込まれました！");
+//}, false)
+//window.onload = function() {
+ // alert("ページが読み込まれました！");
+//};
+
+function sparkle(){
+            var canvas = document.getElementById('logo_canvas');
             if (canvas.getContext){
                 var ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, 150, 30);
@@ -34,4 +41,18 @@ function dr(){
                 }
             }
           }
-      setInterval(function(){dr();},150);
+      setInterval(function(){sparkle();},150);
+
+
+
+var startPos = 0,winScrollTop = 0;
+$(window).on('scroll',function(){
+    winScrollTop = $(this).scrollTop();
+    if (winScrollTop >= startPos) {
+        $('.head').addClass('navc');
+    } else {
+        $('.head').removeClass('navc');
+    }
+    startPos = winScrollTop;
+});
+

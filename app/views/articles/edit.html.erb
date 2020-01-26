@@ -1,7 +1,8 @@
 <p>編集</p>
 
 
-<%= form_tag(articles_path,{multipart:true})%>
+<%= form_tag(article_path,{method: "patch",multipart:true}) do%>
+
 <p>タイトル<input name="title" type="string"value="<%= @article.title %>"  ></p>
 <p>  本文<input name="contents" type="text" class="content_form"value="<%= @article.contents %>"></p>
 <p>  画像<input name="img" type="file" class="img_form"></p>
@@ -26,4 +27,5 @@
 </select>
 </p>
 <p><input type="submit"></p>
-</form>
+
+<% end %>

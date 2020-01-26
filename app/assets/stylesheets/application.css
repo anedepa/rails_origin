@@ -13,13 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+padding-top:120px;
+}
+
+
  .pagination>li>a {
    border: none;     /*枠線をなくす*/
    color:black;   /*文字の色を変える*/
  }
  .pagination>.active>a {
   background:lightgreen;     /*背景の色を変える*/
-  /* border-radius: 15px; */
+  
 }
  .pagination>.active>a:hover{
   background:lightgreen;
@@ -32,11 +38,12 @@
 .head{
   background-color:black;
   transition:.3s;
-  padding-bottom:0;
+  padding-bottom:10px;
+  
 }
 
 header li>a{
-  /* background-color: green; */
+  
   font-weight: bold;
 }
 header li>a::after {
@@ -54,9 +61,7 @@ header li>a::after {
 header li>a:hover::after {
   transform: scale(1, 1);
 }
-body{
-  /* text-align: center; */
-}
+
   canvas{
         position:absolute;     
          
@@ -102,14 +107,69 @@ body{
 	   
       }
 .navc{
-    transform: translateY(-87%);
-    
-    opacity:.6;
+    transform: translateY(-100%);
+  
     transition:.3s;
 }
-.sw{
-	
-cursor: pointer;
-height:30px;
-margin-bottom:0;
+
+.brightness{
+filter:brightness(70%);
+}
+
+.a_tag{
+  
+  width:200px;
+  margin-bottom: 5px;
+
+}
+.b_tag{
+  
+  width:200px;
+  height:200px;
+  // background-Color:blue;
+  color:blue;
+  position:relative;
+}
+.stream{
+  position:absolute;
+  color: inherit;
+  width:200px;
+  margin-bottom: 5px;
+  z-index: 2;
+  opacity: 0;
+
+}
+.showimg{
+max-width:800px;
+min-width:400px;
+margin-left:auto;
+margin-right:auto;
+}
+.c_list{
+  color:black;
+  font-weight: bold;
+}
+
+.stream{
+  position:absolute;
+  color: inherit;
+  width:200px;
+  margin-bottom: 5px;
+  z-index: 2;
+  opacity: 0;
+
+}
+.move{
+  opacity: 1;
+  // animation:type 5s linear 1;
+  animation:type 4s linear  infinite; 
+}
+  @keyframes type{
+  0%{
+  transform:translateY(200px);
+}
+
+100%{
+transform:translateY(-400px);
+}
 }

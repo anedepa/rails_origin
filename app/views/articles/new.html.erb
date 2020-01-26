@@ -1,23 +1,19 @@
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <% if logged_in? %>
 
-<%= session[:user_id] %>
-<%= @current_user.name %>
-
 <% end %>
-<p>新規投稿</p>
+<h1>新規投稿</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-<%= form_tag(articles_path,{multipart:true})%>
-<p>タイトル<input name="title" type="string"></p>
-<p>  本文<input name="contents" type="text" class="content_form"></p>
-<p>  画像<input name="img" type="file" class="img_form"></p>
+<%= form_tag(articles_path, {multipart:true}) do%>
+
+<p>タイトル<br><input name="title" type="string"></p>
+<p> 本文 <br><textarea name="contents" type="text" class="content_form"></textarea></p>
+<p> 画像 <input name="img" type="file" class="img_form"></p>
 <p>
-  画像スタイル
+  画像スタイル<br>
 <select id=”style” name="style">
 <option selected="selected" value=none>なし</option>
 <option value=sepia>セピア</option>
@@ -25,7 +21,7 @@
 </select>
 </p>
 <p>
-  背景パターン
+  背景パターン<br>
 <select id=”color” name="color">
 <option selected="selected" value=none>なし</option>
 <option value=hougan>方眼</option>
@@ -37,9 +33,7 @@
 </select>
 </p>
 
-<p><input type="submit"></p>
-</form>
-
-<br>
-<br>
-<br>
+<p><input type="submit"value="投稿"></p>
+<% end %>
+ </div>
+</div>

@@ -1,10 +1,13 @@
 
 one:
   title: MyString
-  img_name: MyString
+  img_name: MyImg
   contents: MyText
+  color: mycolor
+  img_style: mystyle
+  author: 1
 
 two:
   title: MyString
-  img_name: MyString
+  img_name: MyImg
   contents: MyText
