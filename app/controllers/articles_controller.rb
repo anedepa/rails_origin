@@ -77,19 +77,15 @@ img_name = params[:img].original_filename
   end
 
 
-    def create
+   def create
+#@article = article.build(article_params)
 
-    
-    #render plain: params[:img_name].inspect
-    # render plain: params[:img].original_filename
-    # render plain: params[:img].original_filename.inspect
-    
-
-    img_name = params[:img].original_filename
+    #img_name = params[:img].original_filename
+ 
     @article = Article.new(
       title:params[:title],
       contents:params[:contents],
-      img_name: img_name,
+      img_name:img_name,
       img_style:params[:style],
       color: params[:color],
       author:session[:user_id]
@@ -103,6 +99,24 @@ img_name = params[:img].original_filename
 flash[:success] = "投稿完了"
     redirect_to root_path
   end
+
+
+private
+
+	def img_name 
+	 params[:img].original_filename
+	end
+
+    #def micropost_params
+     # params.require(:micropost).permit(:title,:contents,:img_name,:)
+# params.require(:micropost) ←この配列を自分で作る
+    #end
+
+    #def correct_user
+    #  @micropost = current_user.microposts.find_by(id: params[:id])
+    #  redirect_to root_url if @micropost.nil?
+    #end
+
 
 
 end
