@@ -23,8 +23,8 @@ resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
 resources :articles do
-  resources :comments
-  # resources :coments,only: [:create, :destroy]
+  #resources :comments
+  resources :comments, only:[:create, :destroy]
 end
   # delete'/articles/:id',to: 'coment#destroy'
 

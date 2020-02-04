@@ -3,36 +3,31 @@
 <h1>新規投稿</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-<%= render "shared/error_messages", object: @article %>
 
 
-<%= form_tag(articles_path, {multipart:true}) do%>
+ <%= form_for(@article) do |f| %>
 
-<p>タイトル<br><input name="title" type="string"></p>
-<p> 本文 <br><textarea name="contents" type="text" class="content_form"></textarea></p>
-<p> 画像 <input name="img" type="file" class="img_form"></p>
-<p>
-  画像スタイル<br>
-<select id=”style” name="style">
-<option selected="selected" value=none>なし</option>
-<option value=sepia>セピア</option>
-<option value=invert>色調反転</option>
-</select>
-</p>
-<p>
-  背景パターン<br>
-<select id=”color” name="color">
-<option selected="selected" value=none>なし</option>
-<option value=hougan>方眼</option>
-<option value=naname>斜線</option>
-<option value=tile>タイル</option>
-<option value=dot>ドット</option>
-<option value=en>円</option>
+      <%= render 'shared/error_messages', object: f.object %>
 
-</select>
-</p>
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, class: 'form-control' %>
 
-<p><input type="submit"value="投稿"></p>
-<% end %>
+      <%= f.label :本文 %>
+      <%= f.text_area :contents, class: 'form-control' %>
+
+      <%= f.label :画像 %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+      <%= f.label :画像スタイル %>      
+      <%= f.select :img_style, {セピア:"sepia", 色調反転: "invert"}, {include_blank: 'なし'},class: 'sample'  %>
+
+
+      <%= f.label :背景パターン %>
+      <%= f.select :color, {方眼:"hougan", 斜線: "naname", タイル: "tile", ドット: "dot", 円: "en"}, {include_blank: 'なし'},class: 'sample'  %>
+
+
+
+      <%= f.submit "投稿", class: "btn btn-primary" %>
+    <% end %>
  </div>
 </div>

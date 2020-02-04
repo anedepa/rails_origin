@@ -16,14 +16,13 @@
     <a href="<%="articles/#{c.id}"%>" class="a_tag">
 
   <div class="stream">
-  <% c.comments.first(5).each do |cl| %>
+  <% c.comments.order(created_at:'desc').first(5).each do |cl| %>
 <li class="c_list" style="color:<%= cl.color %>;"><%= cl.body%></li>
 <br>
 <% end %>
 </div>
 
-<img src="<%= "/post_img/#{c.img_name}" %>" alt="<%="#{c.id}"%>"class="img <%="#{c.img_style}"%>">
-
+<%= image_tag c.picture, :width =>'200', class:"#{c.img_style}"%>
 </a>
 </div>
 

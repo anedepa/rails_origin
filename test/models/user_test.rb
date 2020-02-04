@@ -5,6 +5,8 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
+    @param=articles(:one)
+
   end
 
   test "should be valid" do
@@ -73,5 +75,29 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "user should be destroyed" do
+     @user.save
+     assert_difference 'User.count', -1 do
+       @user.destroy
+     end
+   end
+
+ 
+  test "articles should be destroyed" do
+    @user.save
+    @user.articles.create!(title: "title1",contents: "texttext",picture:"test.png")	
+    assert_difference 'Article.count', -1 do
+      @user.destroy
+    end
+  end
+
+  test "comments should be destroyed" do
+    @user.save
+    @article=@user.articles.create!(title: "title1",contents: "texttext",color:"ccc",img_style:"iii")
+    @article.comments.create!(body: "Lorem ipsum")	
+    assert_difference 'Comment.count', -1 do
+      @user.destroy
+    end
+  end
    
 end

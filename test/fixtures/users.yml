@@ -2,3 +2,9 @@ kabuto:
   name: Koji Kabuto
   email: majin@example.com
   password_digest: <%= User.digest('password') %>
+
+nobi:
+  name: Nobita Nobi
+  email: hirune@example.com
+  password_digest: <%= User.digest('password') %>
+

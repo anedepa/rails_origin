@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
   def index
     #@user = User.find(params[:id])
 @user = User.find(session[:user_id])
@@ -8,7 +9,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-@articles=Article.where(author:session[:user_id])
+@articles=@user.articles.order(created_at:'desc')
+#@articles=Article.where(user_id:session[:user_id])
+#もしparams[:id]とsession[:user_id]がちがったらrootへリダイレクト
+#  if params[:id] != session[:user_id]
+#   flash[:info] = "(params[:id])"
+#  end
 
   end
 
@@ -54,7 +60,7 @@ def update
 
   def user_params
    params.require(:user).permit(:name, :email, :password,
-                                :password_confirmation,:color)
+                                :password_confirmation)
  end
 
  # beforeフィルター
@@ -63,6 +69,7 @@ def update
  def correct_user
    @user = User.find(params[:id])
    redirect_to(root_url) unless current_user?(@user)
+   flash[:danger] = "権限がありません" unless current_user?(@user)
  end
 
  # 管理者かどうかを確認

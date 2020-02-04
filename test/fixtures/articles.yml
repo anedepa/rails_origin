@@ -1,13 +1,17 @@
 
+
 one:
   title: MyString
-  img_name: MyImg
   contents: MyText
-  color: mycolor
-  img_style: mystyle
-  author: 1
+  user: kabuto
+  
 
 two:
-  title: MyString
-  img_name: MyImg
+  title: No comments
   contents: MyText
+  user: nobi
+
+three:
+  title: Many comments
+  contents: MyText
+  user: nobi

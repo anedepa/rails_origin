@@ -1,32 +1,44 @@
 
-<div>
 
 <h1><%= @article.title %></h1>
+
 <hr>
 
-<div class="text-center";>
-<img src="<%= "/post_img/#{@article.img_name}" %>" class="showimg <%=@article.img_style%>">
+<div class="text-center">
+
+<%= image_tag @article.picture, class:"showimg #{@article.img_style}"%>
 
 <p><%= @article.contents %></p>
 
 <%= render 'shared/coment_form' %>
-</div>
-
-
-
-<% if @article.comments.any? %>
-  
 
 コメント数（<%= @article.comments.count %>）
 
+<% if @article.comments.any? %>
+  <br>
+<table class="table">
 
-  <%= will_paginate @microposts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-  <% @microposts.each do |c| %>
-  <li style="color:<%= c.color %>;"><%= c.body %></li>
+
+
+  <%= will_paginate @comments, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  <% @comments.each do |c| %>
+<tr>
+  <td><li style="color:<%= c.color %>;"> <%= c.body %> </li></td>
+  <td><%= c.created_at %></td>
+
+  <% if logged_in? %>
+   <td><%= link_to "[削除]",  article_comment_path(@article,c), method: :delete,data: { confirm: "よろしいですか?" } %></td>
+  <% end %>
+  
+</tr>
 <% end %>
-<%= will_paginate @microposts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</table>
+
+<%= will_paginate @comments, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
 <% end %>
 </div>
+
 
 <script>
 $("body").addClass("<%= @article.color %>")

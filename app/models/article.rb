@@ -1,19 +1,21 @@
 class Article < ApplicationRecord
-  
+belongs_to :user 
 has_many :comments, dependent: :destroy
-#validates :user_id, presence: true
+
+mount_uploader :picture, PictureUploader
+validates :user_id, presence: true
+validates :title, presence: true
 validates :contents, presence: true, length: { maximum: 100 }
-#validate :check_image
+validate  :picture_size
 
-private
+  private
 
-    def check_image
-   # if !['.jpg', '.png', '.gif'].include?(File.extname(params[:img]).downcase)
-if !['.jpg', '.png', '.gif'].include?(img_name.downcase)
-        errors.add(:image, "JPG, PNG, GIFのみアップロードできます。")
-    elsif file.size > 1.megabyte
-        errors.add(:image, "1MBまでアップロードできます")
+    
+    def picture_size
+      if picture.size > 3.megabytes
+        errors.add(:picture, "should be less than 3MB")
+      end
     end
-  end
+
 
 end

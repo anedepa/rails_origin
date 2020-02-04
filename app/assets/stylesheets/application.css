@@ -20,11 +20,11 @@ padding-top:120px;
 
 
  .pagination>li>a {
-   border: none;     /*枠線をなくす*/
-   color:black;   /*文字の色を変える*/
+   border: none;   
+   color:black;   
  }
  .pagination>.active>a {
-  background:lightgreen;     /*背景の色を変える*/
+  background:lightgreen;     
   
 }
  .pagination>.active>a:hover{
@@ -32,7 +32,7 @@ padding-top:120px;
   border-radius: 0px;
 }
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;    
   background-color: pink;
 }
 .head{
@@ -53,7 +53,7 @@ header li>a::after {
   content: '';
   width: 100%;
   height: 2px;
-  background:linear-gradient(to left,black,green 30%,gold);
+  background:linear-gradient(to left,blue 30%,lightblue);
   transform: scale(0, 1);
   transform-origin: right top;
   transition: transform .3s;
@@ -63,11 +63,9 @@ header li>a:hover::after {
 }
 
   canvas{
-        position:absolute;     
-         
+        position:absolute;          
         left:0;
-        right:0;
-	
+        right:0;	
       }
 
       
@@ -126,7 +124,7 @@ filter:brightness(70%);
   
   width:200px;
   height:200px;
-  // background-Color:blue;
+  
   color:blue;
   position:relative;
 }
@@ -161,7 +159,7 @@ margin-right:auto;
 }
 .move{
   opacity: 1;
-  // animation:type 5s linear 1;
+  
   animation:type 4s linear  infinite; 
 }
   @keyframes type{

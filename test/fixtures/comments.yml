@@ -3,7 +3,9 @@
 one:
   body: MyString
   article: one
-
-two:
-  body: MyString
-  article: two
+  
+<% 31.times do |n| %>
+comment_<%= n %>:
+  body: <%= Faker::Lorem.sentence(5) %>
+  article: three
+<% end %>

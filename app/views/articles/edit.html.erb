@@ -1,31 +1,29 @@
-<p>編集</p>
+<h1>編集</h1>
 
 
-<%= form_tag(article_path,{method: "patch",multipart:true}) do%>
 
-<p>タイトル<input name="title" type="string"value="<%= @article.title %>"  ></p>
-<p>  本文<input name="contents" type="text" class="content_form"value="<%= @article.contents %>"></p>
-<p>  画像<input name="img" type="file" class="img_form"></p>
-<p>
-  画像スタイル
-<select id=”style” name="style">
-<option selected="selected" value=none>なし</option>
-<option value=sepia>セピア</option>
-<option value=invert>色調反転</option>
-</select>
-</p>
-<p>
-  背景パターン
-<select id=”color” name="color">
-<option selected="selected" value=none>なし</option>
-<option value=hougan>方眼</option>
-<option value=naname>斜線</option>
-<option value=tile>タイル</option>
-<option value=dot>ドット</option>
-<option value=en>円</option>
 
-</select>
-</p>
-<p><input type="submit"></p>
+<%= form_for(@article) do |f| %>
 
-<% end %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :本文 %>
+      <%= f.text_area :contents, class: 'form-control' %>
+
+      <%= f.label :画像 %>
+      <%= f.file_field :picture %>
+
+      <%= f.label :画像スタイル %>      
+      <%= f.select :img_style, {セピア:"sepia", 色調反転: "invert"}, {include_blank: 'なし'},class: 'sample'  %>
+
+
+      <%= f.label :背景パターン %>
+      <%= f.select :color, {方眼:"hougan", 斜線: "naname", タイル: "tile", ドット: "dot", 円: "en"}, {include_blank: 'なし'},class: 'sample'  %>
+
+
+
+      <%= f.submit "投稿", class: "btn btn-primary" %>
+    <% end %>
