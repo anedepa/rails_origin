@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  #has_many :article
   has_many :articles, dependent: :destroy
   has_many :comments, through: :articles
   before_save { email.downcase! }

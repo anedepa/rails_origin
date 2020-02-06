@@ -24,7 +24,7 @@
   <% @comments.each do |c| %>
 <tr>
   <td><li style="color:<%= c.color %>;"> <%= c.body %> </li></td>
-  <td><%= c.created_at %></td>
+  <td><%= c.created_at.strftime('%Y年%m月%d日 %H:%m') %></td>
 
   <% if logged_in? %>
    <td><%= link_to "[削除]",  article_comment_path(@article,c), method: :delete,data: { confirm: "よろしいですか?" } %></td>

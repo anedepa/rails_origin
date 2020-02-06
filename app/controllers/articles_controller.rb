@@ -5,23 +5,13 @@ before_action :correct_user,   only: :destroy
 
   
   def index
-    
-    @articles = Article.paginate(page: params[:page],per_page: 5).order(created_at:'desc')
-    
-    
+   
   end
 
-  def index_per
-    
-    @page = params[:per]
-    @articles = Article.paginate(page: params[:page],per_page: @page).order(created_at:'desc')
-    render("index")
-  end
+ 
 
   def show
     @article=Article.find(params[:id])
-    
-    #@comments = @article.comments.paginate(page: params[:page],per_page: 5).order(created_at:'desc')
     @comments = @article.comments.paginate(page: params[:page],per_page: 30).order(created_at:'desc')
   end
 
@@ -31,9 +21,9 @@ before_action :correct_user,   only: :destroy
 
    def destroy
 Article.find(params[:id]).destroy
-    #User.find(params[:id]).destroy
+    
     flash[:success] = "投稿を削除しました"
-    #redirect_to users_url
+   
 redirect_to user_path(current_user.id)
   end
 
@@ -53,7 +43,6 @@ if @article.update_attributes(article_params)
 
   def new
     @article = Article.new
-
   end
 
 
@@ -72,9 +61,6 @@ render 'new'
 
 private
 
-	def img_name 
-	 params[:img].original_filename
-	end
 
     def article_params
       params.require(:article).permit(:title,:contents,:picture,:img_style,:color)
@@ -90,6 +76,7 @@ private
       params.require(:user).permit(:name,:email,:password,:password_confirmation)
     end
 
+   
 
 
 end

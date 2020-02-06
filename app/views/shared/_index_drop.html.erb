@@ -1,20 +1,23 @@
 
-<div class="dropdown">
-　<button class="btn btn-default" type="button"data-toggle="dropdown">
-　　<%= @page %>
-　　<span class="caret"></span>
-　</button>
-　 <ul class="dropdown-menu">
-　　	<li><a href="/2">2</a></li>
-	<li><a href="/3">3</a></li>
-	<li><a href="/4">4</a></li>
-	<li><a href="/5">5</a></li>
-	<li><a href="/6">6</a></li>
-	<li><a href="/7">7</a></li>
-	<li><a href="/8">8</a></li>
-	<li><a href="/9">9</a></li>
-　 </ul>
+<%= form_tag(root_path) do%>
+<div class="dropdown d-block">
+ <div class="dropdown-wrapper d-block">
 
-　件ずつ表示
-
+<button type="button"data-toggle="dropdown"class="btn dropdown-toggle btn-sm">
+表示件数<span class="caret"></span>
+</button>
+<ul class="dropdown-menu">
+<li><input type="submit"value="1" name="per"></li>
+	<li><input type="submit"value="2" name="per"></li>
+        <li><input type="submit"value="3" name="per"></li>
+	<li><input type="submit"value="5" name="per"></li>
+<li><input type="submit"value="6" name="per"></li>
+	<li><input type="submit"value="9" name="per"></li>
+    </ul>
+ </div>
 </div>
+<p><%= @per %>ずつ表示</p>
+<% end %>
+
+
+

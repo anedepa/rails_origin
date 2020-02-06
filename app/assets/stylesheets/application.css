@@ -17,8 +17,25 @@
 body{
 padding-top:120px;
 }
+.dropdown-wrapper {
+  width: 5vw;
+  min-width: 7em;
+}
 
-
+.dropdown-wrapper > * {
+  width: inherit;
+  min-width: inherit;
+}
+.dropdown-menu>li>input{
+  border: none;
+  background: none;
+  outline: none;
+  appearance: none;
+  width:100%;
+}
+.dropdown-menu>li>input:hover {   
+  background-color:pink;
+}
  .pagination>li>a {
    border: none;   
    color:black;   
@@ -115,16 +132,13 @@ filter:brightness(70%);
 }
 
 .a_tag{
-  
   width:200px;
   margin-bottom: 5px;
 
 }
 .b_tag{
-  
   width:200px;
   height:200px;
-  
   color:blue;
   position:relative;
 }

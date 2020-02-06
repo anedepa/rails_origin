@@ -1,9 +1,6 @@
-
-
 <h1>新規投稿</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-
 
  <%= form_for(@article) do |f| %>
 
@@ -20,14 +17,12 @@
 
       <%= f.label :画像スタイル %>      
       <%= f.select :img_style, {セピア:"sepia", 色調反転: "invert"}, {include_blank: 'なし'},class: 'sample'  %>
-
-
+<br>
       <%= f.label :背景パターン %>
       <%= f.select :color, {方眼:"hougan", 斜線: "naname", タイル: "tile", ドット: "dot", 円: "en"}, {include_blank: 'なし'},class: 'sample'  %>
 
-
-
-      <%= f.submit "投稿", class: "btn btn-primary" %>
+<br>
+      <%= f.submit "投稿", class: "btn btn-default btn-md" %>
     <% end %>
  </div>
 </div>

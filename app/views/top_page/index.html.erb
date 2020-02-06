@@ -1,11 +1,5 @@
-
-<% if logged_in? %>
-<p class="post"><%= link_to '記事を追加',new_article_path, class: "btn btn-default btn-lg"%></p>
-<% end %>
-
-
+<br><br>
 <%= render 'shared/index_drop' %>
-
 <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <br>
 <div class="main">
@@ -46,5 +40,8 @@ $(this).children('img').removeClass('brightness');
  }
 );
 
- 
+
+    
+
+
 </script>
