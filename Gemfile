@@ -5,11 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'rails', '~> 5.1.6'
-gem "actionview", ">= 5.1.7"
-#
-#
+gem 'rails', '~> 5.2'
+gem "actionview", ">= 5.2.4.2"
 gem 'sqlite3'
 gem 'puma', '~> 3.12.4'
 gem 'sass-rails', '~> 5.0'
@@ -20,7 +17,7 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
-gem 'carrierwave',             '1.2.2'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick',             '4.9.4'
 gem 'fog', '1.42'
 gem 'coffee-rails', '~> 4.2'

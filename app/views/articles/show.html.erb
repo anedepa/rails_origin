@@ -6,7 +6,7 @@
 
 <div class="text-center">
 
-<%= image_tag @article.picture, class:"showimg #{@article.img_style}"%>
+<%= image_tag @article.picture.url, class:"showimg #{@article.img_style}"%>
 
 <p><%= @article.contents %></p>
 
