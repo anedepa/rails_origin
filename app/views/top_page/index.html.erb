@@ -3,19 +3,19 @@
 <%= will_paginate @articles, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 <br>
 <div class="main">
-<% @articles.each do |c| %>
+<% @articles.each do |a| %>
 
   <div class="wrap">
-    <a href="<%="articles/#{c.id}"%>" class="a_tag">
+    <a href="<%="articles/#{a.id}"%>" class="a_tag">
 
   <div class="stream">
-  <% c.comments.order(created_at:'desc').first(5).each do |cl| %>
-<li class="c_list" style="color:<%= cl.color %>;"><%= cl.body%></li>
+  <% a.comments.order(created_at:'desc').first(5).each do |c| %>
+<li class="c_list" style="color:<%= c.color %>;"><%= c.body%></li>
 <br>
 <% end %>
 </div>
 
-<%= image_tag c.picture, :width =>'200', class:"#{c.img_style}"%>
+<%= image_tag a.picture, class:"#{a.img_style} imgface"%>
 </a>
 </div>
 
@@ -29,17 +29,13 @@
 
 $('.a_tag').hover(
  function() {
-       $(this).children('.stream').addClass('move');
-$(this).children('img').addClass('brightness');
+   $(this).children('.stream').addClass('move');
+   $(this).children('img').addClass('brightness');
  },
  function() {
-     $(this).children('.stream').removeClass('move');
-$(this).children('img').removeClass('brightness');
+   $(this).children('.stream').removeClass('move');
+   $(this).children('img').removeClass('brightness');
  }
 );
-
-
-    
-
-
+ 
 </script>

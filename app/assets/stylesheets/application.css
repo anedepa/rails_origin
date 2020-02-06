@@ -17,6 +17,11 @@
 body{
 padding-top:120px;
 }
+
+title{
+text-color:red;
+}
+
 .dropdown-wrapper {
   width: 5vw;
   min-width: 7em;
@@ -88,7 +93,6 @@ header li>a:hover::after {
       
       .logoc{
         box-sizing: border-box;
-        
 	color:black;
      	z-index:1;
 	margin-top:0;
@@ -123,7 +127,6 @@ header li>a:hover::after {
       }
 .navc{
     transform: translateY(-100%);
-  
     transition:.3s;
 }
 
@@ -161,19 +164,14 @@ margin-right:auto;
   color:black;
   font-weight: bold;
 }
+.imgface{
+width:200px;
 
-.stream{
-  position:absolute;
-  color: inherit;
-  width:200px;
-  margin-bottom: 5px;
-  z-index: 2;
-  opacity: 0;
 
 }
+
 .move{
   opacity: 1;
-  
   animation:type 4s linear  infinite; 
 }
   @keyframes type{

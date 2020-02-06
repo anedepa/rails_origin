@@ -12,17 +12,21 @@ a{
 
 li{list-style: none}
 
+.main{
+  text-align:center;
+}
+
 .wrap{
   margin-bottom: 5px;
   position:relative;
   width:200px;
-  height:170px;
+  height:150px;
   overflow:hidden;
-  background-color: black;
+  background-color:black;
   z-index: 0;
   text-align:start;
  display: inline-block;
-padding:0;
+ padding:0;
 }
 .stream{
   position:absolute;
@@ -39,9 +43,7 @@ padding:0;
         
 	width:400px;
 }
-.main{
-  text-align:center;
-}
+
 .none{}
     .hougan{
 	background-color: #FFFDE7;

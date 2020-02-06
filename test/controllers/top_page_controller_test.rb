@@ -2,6 +2,14 @@ require 'test_helper'
 
 class TopPageControllerTest < ActionDispatch::IntegrationTest
 
+   test"index get" do
+    get root_url
+    assert_response :success
+    assert_select "title", "SCRollUD"
+    
+  end
+
+
    test"index pagenate" do
     get root_url
     assert_response :success

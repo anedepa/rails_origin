@@ -6,12 +6,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     @article = articles(:one)
   end
 
-  test"index get" do
-    get root_url
-    assert_response :success
-    assert_select "title", "試用アプリ"
-    
-  end
+ 
 
   test"new get" do
     get new_article_url

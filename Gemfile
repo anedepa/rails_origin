@@ -7,8 +7,9 @@ end
 
 
 gem 'rails', '~> 5.1.6'
-
 gem "actionview", ">= 5.1.7"
+#
+#
 gem 'sqlite3'
 gem 'puma', '~> 3.12.4'
 gem 'sass-rails', '~> 5.0'
