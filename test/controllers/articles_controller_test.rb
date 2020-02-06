@@ -36,6 +36,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should redirect destroy for wrong article" do
     log_in_as(users(:kabuto))
     @article = articles(:two)
+    
     assert_no_difference 'Article.count' do
       delete article_path(@article)
     end

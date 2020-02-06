@@ -9,13 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-@articles=@user.articles.order(created_at:'desc')
-#@articles=Article.where(user_id:session[:user_id])
-#もしparams[:id]とsession[:user_id]がちがったらrootへリダイレクト
-#  if params[:id] != session[:user_id]
-#   flash[:info] = "(params[:id])"
-#  end
-
+    @articles=@user.articles.order(created_at:'desc')
+    redirect_to(root_url) unless current_user?(@user)
+    flash[:danger] = "権限がありません" unless current_user?(@user)
   end
 
   def new
@@ -63,17 +59,16 @@ def update
                                 :password_confirmation)
  end
 
- # beforeフィルター
-
- # 正しいユーザーかどうかを確認
  def correct_user
    @user = User.find(params[:id])
    redirect_to(root_url) unless current_user?(@user)
    flash[:danger] = "権限がありません" unless current_user?(@user)
  end
 
- # 管理者かどうかを確認
  def admin_user
    redirect_to(root_url) unless current_user.admin?
  end
+
+ 
+
 end
