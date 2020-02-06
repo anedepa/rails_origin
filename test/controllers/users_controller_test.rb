@@ -52,4 +52,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
+  test "should redirect show when logged in as wrong user" do
+    log_in_as(@other_user)
+    get user_path(@user)
+    assert_not flash.empty?
+    assert_redirected_to root_url
+  end
+
 end
