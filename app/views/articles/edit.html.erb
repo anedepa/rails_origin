@@ -1,19 +1,29 @@
 <p>編集</p>
 
-<%= form_tag(@article, multipart: true, method: 'put') do %>
-<p>
-<input name="title" type="string">
-</p>
 
+<%= form_tag(articles_path,{multipart:true})%>
+<p>タイトル<input name="title" type="string"value="<%= @article.title %>"  ></p>
+<p>  本文<input name="contents" type="text" class="content_form"value="<%= @article.contents %>"></p>
+<p>  画像<input name="img" type="file" class="img_form"></p>
 <p>
-<input name="contents" type="text">
+  画像スタイル
+<select id=”style” name="style">
+<option selected="selected" value=none>なし</option>
+<option value=sepia>セピア</option>
+<option value=invert>色調反転</option>
+</select>
 </p>
+<p>
+  背景パターン
+<select id=”color” name="color">
+<option selected="selected" value=none>なし</option>
+<option value=hougan>方眼</option>
+<option value=naname>斜線</option>
+<option value=tile>タイル</option>
+<option value=dot>ドット</option>
+<option value=en>円</option>
 
-<p>
-<input name="img_n" type="file">
+</select>
 </p>
-
-<p>
-<input type="submit">
-</p>
-<% end %>
+<p><input type="submit"></p>
+</form>

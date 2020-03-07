@@ -3,35 +3,43 @@
 <br>
 <br>
 <br>
+
+<% if logged_in? %>
+
+<%= session[:user_id] %>
+<%= @current_user.name %>
+
+<% end %>
 <p>新規投稿</p>
 
 <%= form_tag(articles_path,{multipart:true})%>
 <p>タイトル<input name="title" type="string"></p>
-<p>  本文<input name="contents" type="text"></p>
-<p>  画像<input name="img" type="file"></p>
+<p>  本文<input name="contents" type="text" class="content_form"></p>
+<p>  画像<input name="img" type="file" class="img_form"></p>
 <p>
-  背景
+  画像スタイル
+<select id=”style” name="style">
+<option selected="selected" value=none>なし</option>
+<option value=sepia>セピア</option>
+<option value=invert>色調反転</option>
+</select>
+</p>
+<p>
+  背景パターン
 <select id=”color” name="color">
-<option selected="selected" value=white>白</option>
-<option value=black>黒</option>
-<option value=red>赤</option>
-<option value=blue>青</option>
-<option value=yellow>黄</option>
-<option value=pink>ピンク</option>
-<option value=green>緑</option>
+<option selected="selected" value=none>なし</option>
+<option value=hougan>方眼</option>
+<option value=naname>斜線</option>
+<option value=tile>タイル</option>
+<option value=dot>ドット</option>
+<option value=en>円</option>
+
 </select>
 </p>
 
 <p><input type="submit"></p>
 </form>
 
-<%= form_with model: @article do |f| %>
-     <div>
-       <%= f.label :image, "画像ファイル" %>
-       <%= f.file_field :image %>
-       <%= f.hidden_field :image_cache %>
-     </div>
-     <div>
-       <%= f.submit "投稿" %>
-     </div>
- <% end %> %>
+<br>
+<br>
+<br>
