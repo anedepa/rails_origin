@@ -45,7 +45,7 @@ sqlite3 vagrant aws nginx
 ・デプロイ方法
 
 
-vagrant上で開発
+vagrant上で開発、githubへプッシュ
 
 コマンドプロンプトからec2にアクセス、プルリクエスト
 
