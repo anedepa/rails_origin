@@ -2,6 +2,7 @@
 
 　カスタマイズ要素多めの気軽に使えるCRUD
  
+ 
 ・機能等
 
 記事画像にマウスホバー時、最新5コメントが自動でスクロール表示されます
@@ -32,6 +33,7 @@
 
 ユーザーを削除すると、投稿した記事、コメントも全て削除されます
 
+
 ・使用技術等
 
 ruby on rails javascript jquery css bootstrap
@@ -40,7 +42,8 @@ sqlite3 vagrant aws nginx
 
 ロゴ背景にcanvasを使用
 
-デプロイ方法
+・デプロイ方法
+
 
 vagrant上で開発
 
