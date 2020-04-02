@@ -15,12 +15,14 @@
 
 ユーザー登録+ログイン機能
 登録情報編集機能
-
-コメント表示制限機能30毎
+コメント表示制限機能
 
 ・使用技術等
-ruby rails javascript jquery css bootstrap
+ruby on rails javascript jquery css bootstrap
+sqlite vagrant aws 
 ロゴ背景にcanvasを使用
+
+デプロイ方法
 vagrant上で開発
 コマンドプロンプトからec2にアクセス、プルリクエスト
 本番環境用の設定をvimで編集
