@@ -23,7 +23,7 @@
 
 ・使用技術等
 ruby on rails javascript jquery css bootstrap
-sqlite vagrant aws nginx 
+sqlite3 vagrant aws nginx 
 ロゴ背景にcanvasを使用
 
 デプロイ方法
