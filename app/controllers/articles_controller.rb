@@ -69,10 +69,7 @@ private
     def correct_user
       @article = current_user.articles.find_by(id: params[:id])
       redirect_to root_url if @article.nil?
-      #@article = Article.find(params[:article_id])
-      #@user = User.find(@article.user.id)
-      #redirect_to(root_url) unless current_user?(@user)
-      #flash[:danger] = "権限がありません" unless current_user?(@user)
+      
       
     end
     def user_params     
