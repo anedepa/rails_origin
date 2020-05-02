@@ -39,7 +39,7 @@ Scroll + CRUD
 
 コメント表示数制限機能
 
-・使用技術等
+・使用技術
 
 ruby on rails javascript jquery css bootstrap
 
