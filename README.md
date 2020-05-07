@@ -1,7 +1,8 @@
+Scroll + CRUD
 
 ・概要
 
-　カスタマイズ要素多めの気軽に使えるCRUD
+　カスタマイズ要素多めの気軽に使える投稿システム
  
  
 ・機能等
@@ -38,7 +39,7 @@
 
 コメント表示数制限機能
 
-・使用技術等
+・使用技術
 
 ruby on rails javascript jquery css bootstrap
 
