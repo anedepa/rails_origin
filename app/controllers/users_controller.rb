@@ -4,7 +4,7 @@ class UsersController < ApplicationController
  
   def index
     #@user = User.find(params[:id])
-@user = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
   end
 
   def show
@@ -31,41 +31,40 @@ class UsersController < ApplicationController
     end
   end
 
-def destroy
-@user = User.find(params[:id])
-@user.destroy
-flash[:info] = "ユーザー情報は全て削除されました"
-redirect_to root_path
-end
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:info] = "ユーザー情報は全て削除されました"
+    redirect_to root_path
+  end
 
 
-def edit
-@user = User.find(session[:user_id])
-end
+  def edit
+    @user = User.find(session[:user_id])
+  end
 
-def update
-   @user = User.find(params[:id])
-   if @user.update_attributes(user_params)
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
      flash[:success] = "プロフィールが更新されました"
      redirect_to @user
-   else
+    else
      render 'edit'
-   end
- end
+    end
+  end
+
   private
 
   def user_params
-   params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password,
                                 :password_confirmation)
- end
+  end
 
- def correct_user
-   @user = User.find(params[:id])
-   redirect_to(root_url) unless current_user?(@user)
-   flash[:danger] = "権限がありません" unless current_user?(@user)
- end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+    flash[:danger] = "権限がありません" unless current_user?(@user)
+  end
 
-
- 
 
 end
