@@ -25,7 +25,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-turbolinks'
-gem 'nokogiri', '1.10.9'
+gem 'nokogiri', '1.13.5'
 
 
 group :development, :test do
